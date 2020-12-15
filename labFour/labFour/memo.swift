@@ -9,34 +9,32 @@
 import Foundation
 import UIKit
 
-class memo {
+class memo: NSObject, NSCoding {
     
-    static let userPath=NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).first!+"/memoList.data"
+    static let userPath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).first!+"/memoList.data"
     
     func encode(with aCoder: NSCoder) {
         aCoder.encode(self.title,forKey: "titleKey")
-        aCoder.encode(self.date,forKey: "dateKey")
-        aCoder.encode(self.content,forKey: "contetntKey")
+        aCoder.encode(self.date, forKey: "dateKey")
+        aCoder.encode(self.content,forKey: "contentKey")
     }
     
     required init?(coder aDecoder: NSCoder) {
         title = (aDecoder.decodeObject(forKey: "titleKey") as? String)
         date = (aDecoder.decodeObject(forKey: "dateKey") as? String)
-        content = (aDecoder.decodeObject(forKey: "contentKey") as? UITextView)
+        content = (aDecoder.decodeObject(forKey: "contentKey") as? NSAttributedString)
     }
     
     
     
-    var title:String?;
-    var date:String?;
-    var content:UITextView?
+    var title: String?
+    var date: String?
+    var content: NSAttributedString?
 //    var avatar:[UIImage]?;
     
-    init(title:String,date:String,content:UITextView?) {
-        self.title=title;
-        self.date=date;
-        self.content=content;
-//        self.avatar=avatar
-        //        self.contactList=[];
-    };
+    init(title: String, date: String, content: NSAttributedString?) {
+        self.title = title
+        self.date = date
+        self.content = content
+    }
 }

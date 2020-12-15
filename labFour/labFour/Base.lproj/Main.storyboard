@@ -54,7 +54,13 @@
                             <outlet property="delegate" destination="W7J-la-MzF" id="D1d-ny-Dae"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="JT2-GT-7Oe"/>
+                    <navigationItem key="navigationItem" id="JT2-GT-7Oe">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Vx1-hD-fR5">
+                            <connections>
+                                <segue destination="Cip-QT-rP1" kind="show" id="cPt-hR-d95"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hX0-pu-89D" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="lcI-uq-7HI" userLabel="Exit" sceneMemberID="exit"/>
@@ -69,22 +75,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dg5-fH-KXM">
-                                <rect key="frame" x="0.0" y="569" width="375" height="49"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <items>
-                                    <tabBarItem systemItem="favorites" id="Pll-bz-TaL"/>
-                                    <tabBarItem systemItem="favorites" id="MG7-JI-f4v"/>
-                                    <tabBarItem systemItem="more" id="zDV-t4-OFx"/>
-                                </items>
-                            </tabBar>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="test" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vFC-cC-05w">
-                                <rect key="frame" x="10" y="100" width="355" height="459"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vFC-cC-05w">
+                                <rect key="frame" x="10" y="100" width="355" height="524"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="test" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LCF-PV-gvy">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LCF-PV-gvy">
                                 <rect key="frame" x="10" y="64" width="355" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -93,13 +90,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="dg5-fH-KXM" firstAttribute="trailing" secondItem="IYa-xT-YmP" secondAttribute="trailing" id="8St-E5-woW"/>
-                            <constraint firstItem="dg5-fH-KXM" firstAttribute="leading" secondItem="IYa-xT-YmP" secondAttribute="leading" id="FRe-Dc-KgX"/>
-                            <constraint firstItem="dg5-fH-KXM" firstAttribute="top" secondItem="vFC-cC-05w" secondAttribute="bottom" constant="10" id="KdG-t0-rlI"/>
+                            <constraint firstItem="vFC-cC-05w" firstAttribute="top" secondItem="LCF-PV-gvy" secondAttribute="bottom" constant="6" id="HU4-Vf-jba"/>
                             <constraint firstItem="LCF-PV-gvy" firstAttribute="top" secondItem="IYa-xT-YmP" secondAttribute="top" id="RRI-gr-KK7"/>
-                            <constraint firstItem="dg5-fH-KXM" firstAttribute="bottom" secondItem="IYa-xT-YmP" secondAttribute="bottom" id="S67-2x-fRP"/>
-                            <constraint firstItem="dg5-fH-KXM" firstAttribute="top" secondItem="vFC-cC-05w" secondAttribute="bottom" constant="10" id="S6R-DF-irt"/>
                             <constraint firstItem="vFC-cC-05w" firstAttribute="top" secondItem="LCF-PV-gvy" secondAttribute="bottom" constant="6" id="UhY-rN-TqW"/>
+                            <constraint firstItem="vFC-cC-05w" firstAttribute="bottom" secondItem="IYa-xT-YmP" secondAttribute="bottom" constant="6" id="ap3-mh-feM"/>
                             <constraint firstItem="vFC-cC-05w" firstAttribute="top" secondItem="LCF-PV-gvy" secondAttribute="bottom" constant="6" id="ax2-qU-ciL"/>
                             <constraint firstItem="LCF-PV-gvy" firstAttribute="leading" secondItem="IYa-xT-YmP" secondAttribute="leading" constant="10" id="fgO-Xw-NGI"/>
                             <constraint firstItem="IYa-xT-YmP" firstAttribute="trailing" secondItem="vFC-cC-05w" secondAttribute="trailing" constant="10" id="glC-T3-Jyd"/>
@@ -113,6 +107,11 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="save" id="9Q4-Gx-Z15">
                             <connections>
                                 <segue destination="lcI-uq-7HI" kind="unwind" identifier="save" unwindAction="saveTolListWithSegue:" id="ciL-ne-EII"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="htq-7l-C4G">
+                            <connections>
+                                <action selector="takePhoto:" destination="Cip-QT-rP1" id="Xcb-pu-oPj"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -145,4 +144,7 @@
             <point key="canvasLocation" x="73.913043478260875" y="-32.142857142857139"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="DL0-BZ-oIh"/>
+    </inferredMetricsTieBreakers>
 </document>

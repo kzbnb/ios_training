@@ -57,6 +57,7 @@ class myTableViewController: UITableViewController {
             if let selectedIndex=tableView.indexPathForSelectedRow{
                 memoList[selectedIndex.row]=memo
                 tableView.reloadRows(at: [selectedIndex], with: UITableView.RowAnimation.automatic)
+                
             }
             else  {
                 memoList.append(memo)
@@ -88,7 +89,7 @@ class myTableViewController: UITableViewController {
         cell.titleLabel?.text=memoList[indexPath.row].title
         cell.dateLabel?.text=memoList[indexPath.row].date;
 //        cell.firstImg?.image=memoList[indexPath.row].avatar;
-        cell.firstImg?.image=nil;
+//        cell.firstImg?.image=nil;
         return cell;
     }
     

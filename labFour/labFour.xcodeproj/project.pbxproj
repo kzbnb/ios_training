@@ -65,12 +65,12 @@
 				273A25EC2582FACB00B9D60E /* AppDelegate.swift */,
 				273A25EE2582FACB00B9D60E /* ViewController.swift */,
 				273A25F02582FACB00B9D60E /* Main.storyboard */,
+				273A25F82582FAD000B9D60E /* Info.plist */,
 				271A5208258310FF00687F6A /* myDataViewCell.swift */,
 				273A26022583021200B9D60E /* dataViewController.swift */,
 				273A2600258301AB00B9D60E /* myTableViewController.swift */,
 				273A25F32582FAD000B9D60E /* Assets.xcassets */,
 				273A25F52582FAD000B9D60E /* LaunchScreen.storyboard */,
-				273A25F82582FAD000B9D60E /* Info.plist */,
 				273A25FE2582FE6500B9D60E /* memo.swift */,
 			);
 			path = labFour;
@@ -300,14 +300,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = labFour/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.scut.labFour;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -318,14 +317,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = labFour/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.scut.labFour;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
