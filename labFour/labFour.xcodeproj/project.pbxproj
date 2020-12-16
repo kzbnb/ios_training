@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		04F3D2F0258A04EB00E48DC8 /* WechatIMG12.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04F3D2EF258A04EB00E48DC8 /* WechatIMG12.jpg */; };
+		04F3D2F2258A302400E48DC8 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04F3D2F1258A302400E48DC8 /* 1.jpg */; };
 		271A5209258310FF00687F6A /* myDataViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271A5208258310FF00687F6A /* myDataViewCell.swift */; };
 		273A25ED2582FACB00B9D60E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273A25EC2582FACB00B9D60E /* AppDelegate.swift */; };
 		273A25EF2582FACB00B9D60E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273A25EE2582FACB00B9D60E /* ViewController.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		04F3D2EF258A04EB00E48DC8 /* WechatIMG12.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WechatIMG12.jpg; sourceTree = "<group>"; };
+		04F3D2F1258A302400E48DC8 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		271A5208258310FF00687F6A /* myDataViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myDataViewCell.swift; sourceTree = "<group>"; };
 		273A25E92582FACB00B9D60E /* labFour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = labFour.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		273A25EC2582FACB00B9D60E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 		273A25EB2582FACB00B9D60E /* labFour */ = {
 			isa = PBXGroup;
 			children = (
+				04F3D2F1258A302400E48DC8 /* 1.jpg */,
 				04F3D2EF258A04EB00E48DC8 /* WechatIMG12.jpg */,
 				273A25EC2582FACB00B9D60E /* AppDelegate.swift */,
 				273A25EE2582FACB00B9D60E /* ViewController.swift */,
@@ -144,6 +147,7 @@
 				273A25F42582FAD000B9D60E /* Assets.xcassets in Resources */,
 				04F3D2F0258A04EB00E48DC8 /* WechatIMG12.jpg in Resources */,
 				273A25F22582FACB00B9D60E /* Main.storyboard in Resources */,
+				04F3D2F2258A302400E48DC8 /* 1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WechatIMG12.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="1V0-I2-Urc">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="1V0-I2-Urc">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7K3-R8-HDG">
@@ -203,7 +203,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="WechatIMG12.jpg" width="1080" height="1440"/>
+        <image name="1.jpg" width="500" height="888"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="DL0-BZ-oIh"/>
