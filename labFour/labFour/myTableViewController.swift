@@ -33,12 +33,12 @@ class myTableViewController: UITableViewController {
     }
     
     func loadInfo() -> Void{
-        self.memoList.append(memo(title: "这是一个备忘录", date: "2020/12/11",content:nil))
+        self.memoList.append(memo(title: "这是一个备忘录", date: "2020/12/11",content:nil,location:"周启麟心里"))
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight=80
+        tableView.rowHeight=100
         ifExit();
         if(testIfExit.count==0){
             loadInfo();}
@@ -87,7 +87,8 @@ class myTableViewController: UITableViewController {
         
         //         Configure the cell...
         cell.titleLabel?.text=memoList[indexPath.row].title
-        cell.dateLabel?.text=memoList[indexPath.row].date;
+        cell.dateLabel?.text=memoList[indexPath.row].date
+        cell.locationLabel?.text=memoList[indexPath.row].location
 //        cell.firstImg?.image=memoList[indexPath.row].avatar;
 //        cell.firstImg?.image=nil;
         return cell;

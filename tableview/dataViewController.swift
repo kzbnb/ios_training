@@ -47,32 +47,10 @@ class dataViewController: UIViewController ,UINavigationControllerDelegate,CLLoc
             self.phoneNumText.text=contact.phone;
             self.avatarLabel.image=contact.avatar;
         }
-     reverseGeocode()
-        locationManager = CLLocationManager()
+        diaoyongdizhi()
+     
+       
         
-                 // 设置定位的精确度
-                 locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        
-                 // 设置定位变化的最小距离 距离过滤器
-                 locationManager.distanceFilter = 50
-        
-                 // 设置请求定位的状态
-                 if #available(iOS 8.0, *) {
-                         locationManager.requestWhenInUseAuthorization()
-                     } else {
-                         // Fallback on earlier versions
-                         print("hello")
-                     }//这个是在ios8之后才有的
-        
-                 // 设置代理为当前对象
-                 locationManager.delegate = self;
-        
-                 if CLLocationManager.locationServicesEnabled(){
-                         // 开启定位服务
-                         locationManager.startUpdatingLocation()
-                     }else{
-                         print("没有定位服务")
-                     }
         
         
         // Do any additional setup after loading the view.
@@ -98,6 +76,37 @@ class dataViewController: UIViewController ,UINavigationControllerDelegate,CLLoc
         dismiss(animated: true, completion: nil)
     }
     
+    
+    func diaoyongdizhi()
+    {
+        locationManager = CLLocationManager()
+        
+        // 设置定位的精确度
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        
+        // 设置定位变化的最小距离 距离过滤器
+        locationManager.distanceFilter = 50
+        
+        // 设置请求定位的状态
+        if #available(iOS 8.0, *) {
+            locationManager.requestWhenInUseAuthorization()
+        } else {
+            // Fallback on earlier versions
+            print("hello")
+        }//这个是在ios8之后才有的
+        
+        // 设置代理为当前对象
+        locationManager.delegate = self;
+        
+        if CLLocationManager.locationServicesEnabled(){
+            // 开启定位服务
+            locationManager.startUpdatingLocation()
+        }else{
+            print("没有定位服务")
+        }
+    }
+    
+    
     lazy var geoCoder: CLGeocoder = {
         return CLGeocoder()
     }()
@@ -113,11 +122,9 @@ class dataViewController: UIViewController ,UINavigationControllerDelegate,CLLoc
                  if locations.count > 0
                  {
                             locationInfoAll=locations.last!
-                         let locationInfo = locations.last!
-                         let alert:UIAlertView = UIAlertView(title: "获取的地理坐标",
-                                                                                message: "经度是：\(locationInfo.coordinate.longitude)，维度是：\(locationInfo.coordinate.latitude)",
-                                 delegate: nil, cancelButtonTitle: "是的")
-                         alert.show()
+                    print("locationInfoAll",locationInfoAll.coordinate.longitude)
+                    print("locationInfoAll",locationInfoAll.coordinate.latitude)
+                    reverseGeocode()
                    
                      }
              }
@@ -125,7 +132,7 @@ class dataViewController: UIViewController ,UINavigationControllerDelegate,CLLoc
 
     func reverseGeocode(){
         let geocoder = CLGeocoder()
-        let currentLocation = CLLocation(latitude: 23.2, longitude: 113.24)
+        let currentLocation = CLLocation(latitude: locationInfoAll.coordinate.latitude, longitude: locationInfoAll.coordinate.longitude)
         geocoder.reverseGeocodeLocation(currentLocation, completionHandler: {
             (placemarks:[CLPlacemark]?, error:Error?) -> Void in
             //强制转成简体中文
