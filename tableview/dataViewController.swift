@@ -47,7 +47,7 @@ class dataViewController: UIViewController ,UINavigationControllerDelegate,CLLoc
             self.phoneNumText.text=contact.phone;
             self.avatarLabel.image=contact.avatar;
         }
-        
+     reverseGeocode()
         locationManager = CLLocationManager()
         
                  // 设置定位的精确度
@@ -118,28 +118,75 @@ class dataViewController: UIViewController ,UINavigationControllerDelegate,CLLoc
                                                                                 message: "经度是：\(locationInfo.coordinate.longitude)，维度是：\(locationInfo.coordinate.latitude)",
                                  delegate: nil, cancelButtonTitle: "是的")
                          alert.show()
-                    reverseGeoCode()
+                   
                      }
              }
     
-    
-    func reverseGeoCode() {
-        let latitude = CLLocationDegrees(locationInfoAll.coordinate.latitude)
-        let longitude = CLLocationDegrees(locationInfoAll.coordinate.longitude)
-    let loc1 = CLLocation(latitude: latitude, longitude: longitude)
-    geoCoder.reverseGeocodeLocation(loc1) { (pls: [CLPlacemark]?, error: Error?)  in
-    if error == nil {
-    print("反地理编码成功")
-    guard let plsResult = pls else {return}
-    let firstPL = plsResult.first
-        let alert:UIAlertView = UIAlertView(title: firstPL?.name,
-                                            message:firstPL?.name,
-            delegate: nil, cancelButtonTitle: "是的")
-        alert.show()
-    }else {
-    print("错误")
-    }
-    }
+
+    func reverseGeocode(){
+        let geocoder = CLGeocoder()
+        let currentLocation = CLLocation(latitude: 23.2, longitude: 113.24)
+        geocoder.reverseGeocodeLocation(currentLocation, completionHandler: {
+            (placemarks:[CLPlacemark]?, error:Error?) -> Void in
+            //强制转成简体中文
+            let array = NSArray(object: "zh-hans")
+            UserDefaults.standard.set(array, forKey: "AppleLanguages")
+            //显示所有信息
+            if error != nil {
+                print("错误：\(error!.localizedDescription))")
+               
+                return
+            }
+            
+            if let p = placemarks?[0]{
+                print(p) //输出反编码信息
+                var address = ""
+                
+                if let country = p.country {
+                    address.append("国家：\(country)\n")
+                }
+                if let administrativeArea = p.administrativeArea {
+                    address.append("省份：\(administrativeArea)\n")
+                }
+                if let subAdministrativeArea = p.subAdministrativeArea {
+                    address.append("其他行政区域信息（自治区等）：\(subAdministrativeArea)\n")
+                }
+                if let locality = p.locality {
+                    address.append("城市：\(locality)\n")
+                }
+                if let subLocality = p.subLocality {
+                    address.append("区划：\(subLocality)\n")
+                }
+                if let thoroughfare = p.thoroughfare {
+                    address.append("街道：\(thoroughfare)\n")
+                }
+                if let subThoroughfare = p.subThoroughfare {
+                    address.append("门牌：\(subThoroughfare)\n")
+                }
+                if let name = p.name {
+                    address.append("地名：\(name)\n")
+                }
+                if let isoCountryCode = p.isoCountryCode {
+                    address.append("国家编码：\(isoCountryCode)\n")
+                }
+                if let postalCode = p.postalCode {
+                    address.append("邮编：\(postalCode)\n")
+                }
+                if let areasOfInterest = p.areasOfInterest {
+                    address.append("关联的或利益相关的地标：\(areasOfInterest)\n")
+                }
+                if let ocean = p.ocean {
+                    address.append("海洋：\(ocean)\n")
+                }
+                if let inlandWater = p.inlandWater {
+                    address.append("水源，湖泊：\(inlandWater)\n")
+                }
+                
+                print(address)
+            } else {
+                print("No placemarks!")
+            }
+        })
     }
     
  
