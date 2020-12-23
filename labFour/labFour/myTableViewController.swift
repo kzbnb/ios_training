@@ -38,6 +38,10 @@ class myTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //////////////////添加监控
+        UIDevice.current.beginGeneratingDeviceOrientationNotifications(); NotificationCenter.default.addObserver(self,selector:#selector(myTableViewController.receivedRotation),name: UIDevice.orientationDidChangeNotification, object: nil);
+        
+        ///////////////////
         tableView.rowHeight=100
         ifExit();
         if(testIfExit.count==0){
@@ -51,6 +55,31 @@ class myTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    //////////////////////////
+    //通知监听触发的方法
+    @objc func receivedRotation(){
+        let device = UIDevice.current
+        switch device.orientation{
+            
+        case .faceDown:
+            print("设备平放，Home键朝下")
+            UIControl().sendAction(#selector(NSXPCConnection.suspend), to: UIApplication.shared, for: nil)
+        case .unknown:
+            print("设备 ")
+        case .portrait:
+            print("设备 ")
+        case .portraitUpsideDown:
+            print(" 设备")
+        case .landscapeLeft:
+            print("设备 ")
+        case .landscapeRight:
+            print("设备")
+        case .faceUp:
+            print(" 设备")
+        }
+    }
+    //////////////
     
     @IBAction func saveTolList(segue:UIStoryboardSegue){
         if let sourceVC=segue.source as?dataViewController,let memo=sourceVC.memoForEdit{
