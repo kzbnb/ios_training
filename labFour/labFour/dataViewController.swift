@@ -11,6 +11,8 @@ import Foundation
 import CoreLocation
 
 class dataViewController: UIViewController ,UINavigationControllerDelegate,CLLocationManagerDelegate,UIImagePickerControllerDelegate{
+    
+    
     //文字大小
     let  textViewFont =  UIFont .systemFont(ofSize: 22)
     
@@ -42,7 +44,6 @@ class dataViewController: UIViewController ,UINavigationControllerDelegate,CLLoc
             //赋值
             self.titleText.text=memo.title;
             self.contentView.attributedText=memo.content;
-            
             print(contentView.attributedText)
             
             

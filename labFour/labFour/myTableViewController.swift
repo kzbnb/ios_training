@@ -55,13 +55,13 @@ class myTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-    
+
     //////////////////////////
     //通知监听触发的方法
     @objc func receivedRotation(){
         let device = UIDevice.current
         switch device.orientation{
-            
+
         case .faceDown:
             print("设备平放，Home键朝下")
             UIControl().sendAction(#selector(NSXPCConnection.suspend), to: UIApplication.shared, for: nil)
@@ -80,7 +80,7 @@ class myTableViewController: UITableViewController {
         }
     }
     //////////////
-    
+
     @IBAction func saveTolList(segue:UIStoryboardSegue){
         if let sourceVC=segue.source as?dataViewController,let memo=sourceVC.memoForEdit{
             if let selectedIndex=tableView.indexPathForSelectedRow{
